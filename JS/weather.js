@@ -4,20 +4,6 @@ let page = "";
 let url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
 
 $(document).ready(function() {
-    /* fetch(url)
-         .then(response => response.json())
-         .then(data => {
-             // do stuff with the data
-             const { main, name, sys, weather } = data;
-
-             const page = '<img id="symbol" className="symbols" src="WeatherItems/weather-icons-master/svg/wi-day-sunny.svg">'+
-                 '<h1 id="city">${name}</h1>'   +
-                 '<h2 id="temp">${Math.round(main.temp)}</h2>' +
-                 '<h3 id="description"> ${weather[0],["description"]} </h3';
-             console.log(page);
-             $("containerF").innerHTML = page;
-         });*/
-
     var test = new XMLHttpRequest();
     test.open('GET', url, true);
     $("#ajax-fill").html("");
@@ -31,7 +17,9 @@ $(document).ready(function() {
             "<h1 id=\"cityA\">" + jsob.name +"</h1>"+
             "<h2 id=\"temp\">" + Math.round(convert(jsob.main.temp)) + "&#176 F</h2>"+
             "<h3 id=\"description\">" + jsob.weather[0].description + "</h3>" +
-            "<p id=\"pressure\">" + jsob.main.pressure + "</p>");
+            "<p >"+"Wind Speed: " + jsob.wind.speed + " " + direction(jsob.wind.deg) +"</p>"+
+            "<p id=\"pressure\">Hurricane unlikely Atmospheric pressure:" + jsob.main.pressure + "</p>");
+
 
     }
     test.send();
@@ -63,4 +51,10 @@ function update(){
 function convert(cel){
     let fahrenheit = cel * 9 / 5 + 32;
     return fahrenheit;
+}
+
+function direction(deg){
+    let val = Math.floor((deg/22.5)+.5)
+    let arr = ["N","NNE","NE","ENE","E","ESE", "SE", "SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
+    return arr[(val % 16)]
 }
