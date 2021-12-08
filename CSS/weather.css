@@ -1,0 +1,48 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+button,
+input {
+    border: none;
+    background: none;
+    outline: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+
+.ajax-cont {
+    margin: 50px 0 20px;
+}
+
+.ajax-cont .symbols{
+    float: left;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+}
+
+.ajax-cont .cities {
+    display: grid;
+    grid-gap: 32px 20px;
+    grid-template-columns: repeat(4, 1fr);
+}
