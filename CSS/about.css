@@ -20,6 +20,10 @@ footer {
     color: white;
     padding: 15px;
 }
+h1, h3, h4{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
 
 /* On small screens, set height to 'auto' for sidenav and grid */

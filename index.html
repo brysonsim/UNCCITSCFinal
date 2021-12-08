@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="CSS/general.css">
     <link rel="stylesheet" href="CSS/weather.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="JS/weather.js"></script>
@@ -28,12 +27,11 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Information</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="info.html">Information</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span></a></li>
             </ul>
         </div>
     </div>
@@ -42,30 +40,29 @@
 <div class="container-fluid text-center">
     <div class="row content">
         <div class="col-sm-2 sidenav">
-            <p><a href="#">Link</a></p>
-            <p><a href="#">Link</a></p>
-            <p><a href="#">Link</a></p>
         </div>
         <div>
 
-        <div class="col-sm-8 text-left">
+            <div class="col-sm-8 text-left">
 
-            <section class="top-banner">
-                <div class="container">
-                    <input type="text" placeholder="Search for a city" autofocus>
-                    <button type="submit">SUBMIT</button>
-                    <span class="msg"></span>
-                    </form>
-                </div>
-            </section>
-            <section class="ajax-cont">
-                <div class="containerF" id="ajax-fill">
-                    <img id = "symbol" class="symbols" src="WeatherItems/weather-icons-master/svg/wi-day-sunny.svg">
-                    <h1 id="city">Charlotte</h1>
-                    <h2 id="temp">--</h2>
-                    <h3 id="description">description</h3>
-                </div>
-            </section></div>
+                <section class="top-banner">
+                    <div class="container">
+
+                        <input id="city" type="text" placeholder="Search for a city" autofocus>
+                        <button id="submit">SUBMIT</button>
+                        <span class="msg"></span>
+
+                    </div>
+                </section>
+
+                <section class="ajax-cont">
+                    <div class="containerF" id="ajax-fill">
+                        <img id = "symbol" class="symbols" src="WeatherItems/weather-icons-master/svg/wi-day-sunny.svg">
+                        <h1 id="cityA">Charlotte</h1>
+                        <h2 id="temp">--</h2>
+                        <h3 id="description">description</h3>
+                    </div>
+                </section></div>
 
 
         </div>
