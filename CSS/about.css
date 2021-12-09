@@ -25,6 +25,9 @@ h1,h2, h3, h4{
     padding-top: 20px;
     padding-bottom: 20px;
 }
+iframe{
+    padding: 10px 10px 10px 10px;
+}
 
 
 /* On small screens, set height to 'auto' for sidenav and grid */

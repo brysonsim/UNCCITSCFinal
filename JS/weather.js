@@ -18,7 +18,7 @@ $(document).ready(function() {
             "<h2 id=\"temp\">" + Math.round(convert(jsob.main.temp)) + "&#176 F</h2>"+
             "<h3 id=\"description\">" + jsob.weather[0].description + "</h3>" +
             "<p >"+"Wind Speed: " + jsob.wind.speed + " " + direction(jsob.wind.deg) +"</p>"+
-            "<p id=\"pressure\">Hurricane unlikely Atmospheric pressure:" + jsob.main.pressure + "</p>");
+            "<p id=\"pressure\">Hurricane unlikely Atmospheric pressure:" + jsob.main.pressure + "</p>"+ "<br><br><br><br>");
 
 
     }
