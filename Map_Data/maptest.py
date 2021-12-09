@@ -6,7 +6,8 @@ Created on Mon Nov 22 14:41:56 2021
 """
 import plotly.express as px
 import pandas as pd
-us_cities = pd.read_csv("https://raw.githubusercontent.com/plotly/datasets/master/us-cities-top-1k.csv")
+import geoloc
+from tqdm import tqdm
 atlantic_weather = pd.read_csv("atlantic.csv",parse_dates=[2])
 
 #Cat 1 = 74-95 MPH
@@ -54,9 +55,19 @@ def clean_data(df):
     df["Category"] = cat_list
 
 def filter_wind(df,min_speed):
-    for i, wind in enumerate(df["Maximum Wind"]):
+    for i, wind in tqdm(enumerate(df["Maximum Wind"])):
         if wind < min_speed:
             df.drop(i, inplace=True)
+
+def filter_landfall(df):
+    hit_land = []
+    for i, event in enumerate(df["Event"]):
+        if str(event).strip() in ["HU","L"]:
+            hit_land.append(df.iloc[i]["ID"])
+    for i, st_id in enumerate(df["ID"]):
+        if st_id not in hit_land:
+            df.drop(i, inplace=True)
+
     
 def filter_event(df, e = "L"):
     for i, event in enumerate(df["Event"]):
@@ -72,24 +83,29 @@ def filter_events(df, e = ["L"]):
         else:
             df.drop(i, inplace=True)
 def filter_name(df,name):
-    for i, name_t in enumerate(df["Name"]):
-        if not name_t.strip() == name:
-            df.drop(i, inplace=True)
+    df = df[df["Name"].strip == name]
+    return df
 
+def filter_speed_v2(df,speed):
+    df = df[df["Maximum Wind"] > speed]
+    return df
+location = geoloc.get_loc()
+print(location)
+loc_dict = {"Latitude":location[1],"Longitude":location[0],"Name":"You are here"}
 #clean_data(atlantic_weather)
 #atlantic_weather.to_csv("atlantic_clean.csv")
 atlantic_weather = pd.read_csv("atlantic_clean.csv",parse_dates=[2])
-filter_wind(atlantic_weather,90)
+#filter_wind(atlantic_weather,155)
+atlantic_weather = atlantic_weather.append(loc_dict,ignore_index=True)
 #filter_name(atlantic_weather,"FAY")
-#filter_event(atlantic_weather,"L")
+#filter_events(atlantic_weather,["HU","L"])
+#filter_landfall(atlantic_weather)
+atlantic_weather = filter_speed_v2(atlantic_weather,155)
 
 
-
-    
-
-#fig = px.scatter_mapbox(us_cities, lat="lat", lon="lon", hover_name="City", hover_data=["State", "Population"],color_discrete_sequence=["fuchsia"], zoom=3, height=300)
-fig = px.scatter_mapbox(atlantic_weather, lat="Latitude", lon="Longitude", hover_name="Name", hover_data=["Status", "Date","Maximum Wind"],color = "Maximum Wind", zoom=3, height=300, opacity=.5)
+fig = px.scatter_mapbox(atlantic_weather, lat="Latitude", lon="Longitude", hover_name="Name", hover_data=["Date","Maximum Wind"],color = "Maximum Wind", zoom=3, width=800, height=600, opacity=.5)
 fig.update_layout(mapbox_style="open-street-map")
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+f = fig.to_html(full_html=False)
 fig.write_html("map.html")
 fig.show()
