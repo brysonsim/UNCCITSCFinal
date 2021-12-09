@@ -25,11 +25,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">HurricaneTracker</a>
+                <a class="navbar-brand" href="index.html">HurricaneTracker</a>
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="info.html">Information</a></li>
                 </ul>
@@ -68,29 +68,28 @@
                             <p>hurricane unlikely Atmospheric pressure</p>
 
                         </div>
+                        <section id="maps" class="ajax-cont">
+                            <div>
+                                <div class="content-fluid">
+                                    <iframe description="Landing" width = "800" height="600" src="Map_Data/LandingLocations.html"></iframe>
+                                    <p>This shows where storms <em>FIRST</em> make landfall, since a storm often has the most destructive force when it first hits land. </p>
+                                    <br>
+                                    <h1>Storms that made contact with land</h1>
+                                    <iframe description="Hit land" width = "800" height="600" src="Map_Data/HitLand.html"></iframe>
+                                    <p>This shows only storms that hit land, or go close enough to land to cause damage, storms that die at sea and never get close to land are ignored</p>
+                                    <br>
+                                    <h1>CAT5 Storms</h1>
+                                    <iframe description="CAT 5 Storms" width = "800" height="600" src="Map_Data/Cat5.html"></iframe>
+                                    <p>This only shows storms with maximum wind speeds of over 155MPH</p>
+                                    <br>
+                                    <h1>Storms with winds over 90 mph</h1>
+                                    <iframe description="Storms over 90 mph" width = "800" height="600" src="Map_Data/Over90.html"></iframe>
+                                    <p>This only shows storms with maximum wind speeds over 90</p>
+                                </div>
+                            </div>
+                        </section>
                     </section>
                 </div>
-
-            <section id="maps" class="ajax-cont">
-                <div>
-                    <div class="content-fluid">
-                    <iframe description="Landing" width = "800" height="600" src="Map_Data/LandingLocations.html"></iframe>
-                        <p>This shows where storms <em>FIRST</em> make landfall, since a storm often has the most destructive force when it first hits land. </p>
-                        <br>
-                        <h1>Storms that made contact with land</h1>
-                    <iframe description="Hit land" width = "800" height="600" src="Map_Data/HitLand.html"></iframe>
-                        <p>This shows only storms that hit land, or go close enough to land to cause damage, storms that die at sea and never get close to land are ignored</p>
-                        <br>
-                        <h1>CAT5 Storms</h1>
-                        <iframe description="CAT 5 Storms" width = "800" height="600" src="Map_Data/Cat5.html"></iframe>
-                        <p>This only shows storms with maximum wind speeds of over 155MPH</p>
-                        <br>
-                        <h1>Storms with winds over 90 mph</h1>
-                    <iframe description="Storms over 90 mph" width = "800" height="600" src="Map_Data/Over90.html"></iframe>
-                        <p>This only shows storms with maximum wind speeds over 90</p>
-                    </div>
-                </div>
-            </section>
             </div>
         </div>
     </div>
