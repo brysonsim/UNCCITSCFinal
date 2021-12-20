@@ -1,5 +1,5 @@
-const apiKey = "b858cb3781983028b914749ba5d871c2";
-let inputVal = "Charlotte";
+const apiKey = "APIKEY";
+let inputVal = "LOCATION";
 let page = "";
 let url = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${apiKey}&units=metric`;
 
